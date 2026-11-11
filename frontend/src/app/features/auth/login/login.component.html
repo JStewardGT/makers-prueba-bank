@@ -1,0 +1,64 @@
+<div class="login-wrapper">
+  <div class="logo-area">
+    <h1 class="brand-title">makers</h1>
+  </div>
+
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title class="card-title">Iniciar Sesión</mat-card-title>
+      <mat-card-subtitle class="card-subtitle">Ingrese sus credenciales para acceder</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="field-container">
+          <label class="field-label">Email</label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput formControlName="email" type="email" placeholder="Email" />
+            @if (loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')) {
+              <mat-error>El correo electrónico es requerido</mat-error>
+            }
+            @if (loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')) {
+              <mat-error>Formato de correo no válido</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="field-container">
+          <label class="field-label">Contraseña</label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput formControlName="password" type="password" placeholder="Contraseña" />
+            @if (loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')) {
+              <mat-error>La contraseña es requerida</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <button
+          mat-flat-button
+          class="btn-black full-width submit-btn"
+          type="submit"
+          [disabled]="loading || loginForm.invalid"
+        >
+          @if (loading) {
+            <mat-spinner diameter="20" class="spinner"></mat-spinner>
+          } @else {
+            Ingresar
+          }
+        </button>
+      </form>
+
+      <div class="demo-hints">
+        <span class="hint-title">Credenciales de prueba rápida:</span>
+        <div class="hints-buttons">
+          <button mat-stroked-button type="button" (click)="fillCredentials('usuario@test.com')">
+            Usuario (usuario@test.com)
+          </button>
+          <button mat-stroked-button type="button" (click)="fillCredentials('admin@test.com')">
+            Admin (admin@test.com)
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

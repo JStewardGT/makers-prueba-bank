@@ -1,0 +1,140 @@
+.dashboard-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+
+  .user-greeting {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+  }
+}
+
+.action-card, .list-card {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  background-color: #ffffff;
+  padding: 24px;
+
+  mat-card-header {
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .sub-tab {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+
+  .card-main-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .card-sub-title {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  mat-card-content {
+    padding: 0;
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+
+  @media (max-width: 540px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field-group {
+  .input-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+}
+
+.submit-loan-btn {
+  height: 44px;
+  padding: 0 24px;
+  margin-top: 4px;
+}
+
+.loans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .loan-item {
+    padding: 14px 18px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #f1f5f9;
+    }
+
+    .loan-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+
+      .loan-text {
+        font-size: 0.9375rem;
+        color: #334155;
+      }
+    }
+
+    .rejection-box {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #fca5a5;
+      font-size: 0.8125rem;
+      color: #991b1b;
+
+      .reason-label {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 24px;
+  color: #64748b;
+
+  mat-spinner {
+    margin: 0 auto 12px;
+  }
+}
